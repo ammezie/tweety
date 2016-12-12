@@ -1,0 +1,9 @@
+{% extends 'master' %}
+
+{% block content %}
+  
+   <h4>{{ currentUser.username }}</h4>
+
+   <img src="{{ currentUser.avatar }}" alt="Avatar" width="50px" style="border-radius:50%">
+
+{% endblock %}
