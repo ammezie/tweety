@@ -20,5 +20,6 @@ const Route = use('Route')
 Route.on('/').render('welcome')
 Route.get('/auth/twitter', 'TweetsController.redirect')
 Route.get('/authenticated/twitter', 'TweetsController.handleCallback')
-Route.on('/home').render('users.home').middleware('auth')
+Route.get('/home', 'TweetsController.home').middleware('auth')
+Route.get('/logout', 'TweetsController.logout')
 

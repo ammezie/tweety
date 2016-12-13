@@ -29,6 +29,18 @@ class TweetsController {
 
         response.redirect('/home')
     }
+
+    * home(request, response) {
+        // const user = yield request.auth.getUser()
+
+        yield response.sendView('users.home')
+    }
+
+    * logout(request, response) {
+        yield request.auth.logout()
+
+        response.redirect('/')
+    }
 }
 
 module.exports = TweetsController

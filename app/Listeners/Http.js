@@ -12,6 +12,10 @@ const Http = exports = module.exports = {}
  * @param  {Object} response
  */
 Http.handleError = function * (error, request, response) {
+  if (error.name === 'InvalidLoginException') {
+    yield response.redirect('/')
+  }
+  
   /**
    * DEVELOPMENT REPORTER
    */
@@ -30,7 +34,7 @@ Http.handleError = function * (error, request, response) {
    */
   const status = error.status || 500
   console.error(error.stack)
-  yield response.status(status).sendView('errors/index', {error})
+  yield response.status(status).sendView('errors/index', {error}) 
 }
 
 /**
